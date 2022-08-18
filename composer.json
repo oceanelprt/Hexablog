@@ -1,0 +1,12 @@
+{
+    "require-dev": {
+        "pestphp/pest": "^1.21",
+        "spatie/phpunit-watcher": "^1.23",
+        "symfony/var-dumper": "^5.4"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
