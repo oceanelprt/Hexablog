@@ -13,5 +13,10 @@
         "psr-4": {
             "Domain\\Blog\\": "domain/Blog/src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Domain\\Blog\\Test\\": "domain/Blog/tests/"
+        }
     }
 }

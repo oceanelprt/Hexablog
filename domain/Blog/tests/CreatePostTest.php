@@ -1,13 +1,18 @@
 <?php
 
 use Domain\Blog\Entity\Post;
+use Domain\Blog\Test\Adapters\InMemoryPostRepository;
 use Domain\Blog\UseCase\CreatePost;
 
+use function PHPUnit\Framework\assertEquals;
 use function PHPUnit\Framework\assertInstanceOf;
 
 it("should create a post", function(){
-   // Coder comme j'aimerai que mon code fonctionne
-    $useCase = new CreatePost;
+    // Simulation de base de données
+    $repository = new InMemoryPostRepository();
+
+    // Coder comme j'aimerai que mon code fonctionne
+    $useCase = new CreatePost($repository);
 
     $post = $useCase->execute([
         'title' => 'Mon titre',
@@ -15,5 +20,9 @@ it("should create a post", function(){
         'publishedAt' => new DateTime()
     ]);
 
+    // Bonne pratique :
+    // lors d'un assert, le premier paramètre est ce qu'on connait
+    // le second est ce qu'on veut vérifier
     assertInstanceOf(Post::class, $post);
+    assertEquals($post, $repository->findOne($post->uuid));
 });
