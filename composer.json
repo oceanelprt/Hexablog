@@ -19,5 +19,8 @@
         "psr-4": {
             "Domain\\Blog\\Test\\": "domain/Blog/tests/"
         }
+    },
+    "require": {
+        "beberlei/assert": "^3.3"
     }
 }

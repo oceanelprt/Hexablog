@@ -12,3 +12,6 @@ Lancer les tests :
 
 Pour relancer les tests à chaque modification :
 `vendor/bin/phpunit-watcher watch`
+
+Dépendances :
+- Beberlei/assert : Permet de faire des validations de données
