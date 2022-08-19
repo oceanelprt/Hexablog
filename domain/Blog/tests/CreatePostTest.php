@@ -2,6 +2,7 @@
 
 use Domain\Blog\Entity\Post;
 use Domain\Blog\Test\Adapters\InMemoryPostRepository;
+use Domain\Blog\Test\Adapters\PDOPostRepository;
 use Domain\Blog\UseCase\CreatePost;
 
 use function PHPUnit\Framework\assertEquals;
@@ -9,7 +10,7 @@ use function PHPUnit\Framework\assertInstanceOf;
 
 it("should create a post", function(){
     // Simulation de base de données avec une source de données
-    $repository = new InMemoryPostRepository();
+    $repository = new PDOPostRepository();
 
     // Coder comme j'aimerai que mon code fonctionne
     $useCase = new CreatePost($repository);
@@ -18,7 +19,7 @@ it("should create a post", function(){
     $post = $useCase->execute([
         'title' => 'Mon titre',
         'content' => 'Mon contenu',
-        'publishedAt' => new DateTime()
+        'publishedAt' => new DateTime('2020-01-01 14:30:00') // On a des dates déterministes pour qu'on puisse voir dans les résultats des tests que tout s'est bien passé
     ]);
 
     // Bonne pratique :

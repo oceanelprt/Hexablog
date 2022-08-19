@@ -7,6 +7,7 @@ use Domain\Blog\Port\PostRepositoryInterface;
 
 class CreatePost
 {
+    // Aucune importance de ce qu'est le repository, si ce dernier possède bien les méthodes inclues dans l'interface PostRepositoryInterface
     protected PostRepositoryInterface $postRepository;
 
     public function __construct(PostRepositoryInterface $repository)
