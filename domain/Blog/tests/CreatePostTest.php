@@ -8,12 +8,13 @@ use function PHPUnit\Framework\assertEquals;
 use function PHPUnit\Framework\assertInstanceOf;
 
 it("should create a post", function(){
-    // Simulation de base de données
+    // Simulation de base de données avec une source de données
     $repository = new InMemoryPostRepository();
 
     // Coder comme j'aimerai que mon code fonctionne
     $useCase = new CreatePost($repository);
 
+    // Exécution du use case
     $post = $useCase->execute([
         'title' => 'Mon titre',
         'content' => 'Mon contenu',
